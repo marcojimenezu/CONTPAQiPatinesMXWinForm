@@ -55,3 +55,5 @@ nunit-*.xml
 
 
 **/v17/
+**/CopilotIndices/
+**/FileContentIndex/
