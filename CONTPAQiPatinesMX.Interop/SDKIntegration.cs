@@ -17,7 +17,8 @@ namespace CONTPAQiPatinesMX.Interop
             try
             {
                 ObtenerRutaDll();
-                sdkInicializado = InicializaSDK();
+                //sdkInicializado = InicializaSDK();
+                sdkInicializado = SetNombrePAQ("CONTPAQ I COMERCIAL");
 
                 if (!sdkInicializado)
                     throw new Exception("No se pudo inicializar el SDK de CONTPAQi.");
