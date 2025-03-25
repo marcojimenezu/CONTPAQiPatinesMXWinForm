@@ -35,7 +35,7 @@ namespace CONTPAQiPatinesMX.UI
             {
                 this.DialogResult = DialogResult.OK;
                 Core.Core.Instance.TerminarSesion();
-                this.Close();
+                this.Hide();
             }
             else
             {
