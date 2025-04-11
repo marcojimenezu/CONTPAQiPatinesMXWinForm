@@ -13,20 +13,20 @@ namespace CONTPAQiPatinesMX.Interop
 
         private SDKIntegration()
         {
-            bool sdkInicializado;
-            try
-            {
-                ObtenerRutaDll();
-                //sdkInicializado = InicializaSDK();
-                sdkInicializado = SetNombrePAQ("CONTPAQ I COMERCIAL");
+            //bool sdkInicializado;
+            ObtenerRutaDll();
+            //try
+            //{
+            //    ObtenerRutaDll();
+            //    sdkInicializado = SetNombrePAQ("CONTPAQ I COMERCIAL");
 
-                if (!sdkInicializado)
-                    throw new Exception("No se pudo inicializar el SDK de CONTPAQi.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al inicializar Interop: " + ex.Message);
-            }
+            //    if (!sdkInicializado)
+            //        throw new Exception("No se pudo inicializar el SDK de CONTPAQi.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception("Error al inicializar Interop: " + ex.Message);
+            //}
         }
 
         public static SDKIntegration Instance
@@ -137,5 +137,25 @@ namespace CONTPAQiPatinesMX.Interop
 
             return resultado; // Retorna el código de éxito/error.
         }
+
+        public List<(int Id, string Nombre, string Directorio)> ObtenerEmpresas()
+        {
+            List<(int, string, string)> empresas = new List<(int, string, string)>();
+
+            int idEmpresa = 0;
+            StringBuilder nombreEmpresa = new StringBuilder(256);
+            StringBuilder directorioEmpresa = new StringBuilder(256);
+
+            int resultado = Interfaces.fPosPrimerEmpresa(ref idEmpresa, nombreEmpresa, directorioEmpresa);
+            resultado = Interfaces.fPosSiguienteEmpresa(ref idEmpresa, nombreEmpresa, directorioEmpresa); // Se manda llamar Siguiente empresa ya que siempre en Comercial la primer empresa es la PREDETERMINADA
+            while (resultado == 0) // 0 indica éxito
+            {
+                empresas.Add((idEmpresa, nombreEmpresa.ToString(), directorioEmpresa.ToString()));
+                resultado = Interfaces.fPosSiguienteEmpresa(ref idEmpresa, nombreEmpresa, directorioEmpresa);
+            }
+
+            return empresas;
+        }
+
     }
 }

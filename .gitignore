@@ -57,3 +57,11 @@ nunit-*.xml
 **/v17/
 **/CopilotIndices/
 **/FileContentIndex/
+/.vs/CONTPAQiPatinesMXWinForm/DesignTimeBuild/.dtbcache.v2
+/.vs/CONTPAQiPatinesMXWinForm/FileContentIndex/615b9c5f-cb61-45d9-89fc-52dec3abdb8c.vsidx
+/.vs/CONTPAQiPatinesMXWinForm/FileContentIndex/a21bb12a-b17c-4f63-9d6e-2778646a9967.vsidx
+
+# Ignorar archivos temporales y de caché de Visual Studio
+.vs/
+*.db
+*.bin

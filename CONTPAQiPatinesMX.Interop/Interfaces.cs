@@ -163,6 +163,12 @@ namespace CONTPAQiPatinesMX.Interop
         public static extern void fTerminaSDK();
 
         [DllImport("MGW000.dll")]
+        public static extern int fPosPrimerEmpresa(ref int aIdEmpresa, StringBuilder aNombreEmpresa, StringBuilder aDirectorioEmpresa);
+
+        [DllImport("MGW000.dll")]
+        public static extern int fPosSiguienteEmpresa(ref int aIdEmpresa, StringBuilder aNombreEmpresa, StringBuilder aDirectorioEmpresa);
+
+        [DllImport("MGW000.dll")]
         public static extern int fAbreEmpresa(StringBuilder Directorio);
 
         [DllImport("MGW000.dll")]

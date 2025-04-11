@@ -32,8 +32,9 @@
             label2 = new Label();
             txtUsuario = new TextBox();
             txtContrasenia = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            btnAceptar = new Button();
+            btnCerrar = new Button();
+            lstEmpresas = new ListView();
             SuspendLayout();
             // 
             // label1
@@ -48,7 +49,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(204, 104);
+            label2.Location = new Point(201, 112);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
             label2.TabIndex = 1;
@@ -64,37 +65,48 @@
             // 
             // txtContrasenia
             // 
-            txtContrasenia.Location = new Point(332, 115);
+            txtContrasenia.Location = new Point(315, 104);
             txtContrasenia.Name = "txtContrasenia";
             txtContrasenia.Size = new Size(100, 23);
             txtContrasenia.TabIndex = 3;
             // 
-            // button1
+            // btnAceptar
             // 
-            button1.Location = new Point(237, 189);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnAceptar.Location = new Point(201, 164);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(75, 23);
+            btnAceptar.TabIndex = 4;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
-            // button2
+            // btnCerrar
             // 
-            button2.Location = new Point(371, 199);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 5;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnCerrar.Location = new Point(340, 164);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(75, 23);
+            btnCerrar.TabIndex = 5;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // lstEmpresas
+            // 
+            lstEmpresas.Location = new Point(12, 206);
+            lstEmpresas.Name = "lstEmpresas";
+            lstEmpresas.Size = new Size(619, 222);
+            lstEmpresas.TabIndex = 6;
+            lstEmpresas.UseCompatibleStateImageBehavior = false;
+            lstEmpresas.Visible = false;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(643, 467);
+            Controls.Add(lstEmpresas);
+            Controls.Add(btnCerrar);
+            Controls.Add(btnAceptar);
             Controls.Add(txtContrasenia);
             Controls.Add(txtUsuario);
             Controls.Add(label2);
@@ -104,6 +116,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             FormClosed += LoginForm_FormClosed;
+            KeyDown += LoginForm_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -114,7 +127,8 @@
         private Label label2;
         private TextBox txtUsuario;
         private TextBox txtContrasenia;
-        private Button button1;
-        private Button button2;
+        private Button btnAceptar;
+        private Button btnCerrar;
+        private ListView lstEmpresas;
     }
 }
